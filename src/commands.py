@@ -4,6 +4,7 @@ import click
 from src.ext import db
 from src.models import User, WorkoutPlan, WorkoutPlanExercise
 from src.models import Exercise
+from src.models.weight_tracking import WeightTrack
 
 
 def init_db():
@@ -71,6 +72,9 @@ def populate_db():
 
     WorkoutPlanExercise(workout_plan_id = "1", exercise_id = "1", sets = "1", repetitions = "1", duration = "1", distance = "1.1").create()
     WorkoutPlanExercise(workout_plan_id = "2", exercise_id = "2", sets = "2", repetitions = "2", duration = "2", distance = "1.12").create()
+
+    WeightTrack(user_id = "1", weight = "50").create()
+    WeightTrack(user_id = "2", weight = "60").create()
 
 
 @click.command("init_db")

@@ -6,6 +6,7 @@ from src.models import WorkoutPlan
 
 @workout_plans_ns.route("/workout_plans")
 class WorkoutPlansApi(Resource):
+
     @workout_plans_ns.marshal_with(workout_plans_model)
     def get(self):
         workout_plans = WorkoutPlan.query.all()

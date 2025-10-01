@@ -2,7 +2,7 @@ from flask import Flask
 from src.commands import init_db_command, populate_db_command
 from src.config import Config
 from src.ext import db, migrate, api
-from src.endpoints import ExerciseApi, WorkoutPlansApi
+from src.endpoints import ExerciseApi, WorkoutPlansApi, WeightTrackingApi
 
 COMMANDS = [init_db_command, populate_db_command]
 

@@ -1,5 +1,4 @@
 from flask_restx import fields, reqparse
-
 from src.ext import api
 
 workout_plans_ns = api.namespace("WorkoutPlans", path='/api')
