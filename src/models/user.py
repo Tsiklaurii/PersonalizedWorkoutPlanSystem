@@ -9,6 +9,8 @@ class User (BaseModel):
     username = db.Column(db.String, unique=True)
     _password = db.Column(db.String)
 
+    workout_plans = db.relationship("WorkoutPlan", back_populates="user")
+
     def check_password(self, password):
         return check_password_hash(self.password, password)
 

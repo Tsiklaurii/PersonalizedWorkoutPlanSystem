@@ -64,6 +64,7 @@ def populate_db():
     db.session.commit()
 
     User(username="User1", password="password123").create()
+    User(username="User2", password="password456").create()
 
 @click.command("init_db")
 @with_appcontext

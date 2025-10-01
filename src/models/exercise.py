@@ -9,3 +9,5 @@ class Exercise(BaseModel):
     description = db.Column(db.String)
     instruction = db.Column(db.String)
     target_muscle = db.Column(db.String)
+
+    workout_plan_exercises = db.relationship("WorkoutPlanExercise", back_populates="exercise")
