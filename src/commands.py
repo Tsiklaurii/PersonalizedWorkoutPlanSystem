@@ -2,7 +2,7 @@ from flask.cli import with_appcontext
 import click
 
 from src.ext import db
-from src.models import User
+from src.models import User, WorkoutPlan, WorkoutPlanExercise
 from src.models import Exercise
 
 
@@ -65,6 +65,13 @@ def populate_db():
 
     User(username="User1", password="password123").create()
     User(username="User2", password="password456").create()
+
+    WorkoutPlan(user_id = "1", name = "WorkoutPlan1", frequency = "1", goal = "goal1", daily_duration = "1").create()
+    WorkoutPlan(user_id = "2", name = "WorkoutPlan2", frequency = "2", goal = "goal2", daily_duration = "2").create()
+
+    WorkoutPlanExercise(workout_plan_id = "1", exercise_id = "1", sets = "1", repetitions = "1", duration = "1", distance = "1.1").create()
+    WorkoutPlanExercise(workout_plan_id = "2", exercise_id = "2", sets = "2", repetitions = "2", duration = "2", distance = "1.12").create()
+
 
 @click.command("init_db")
 @with_appcontext
