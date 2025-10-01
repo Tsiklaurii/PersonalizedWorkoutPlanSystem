@@ -12,4 +12,8 @@ class WorkoutPlan(BaseModel):
     daily_duration = db.Column(db.Integer)
 
     user = db.relationship("User", back_populates="workout_plans")
-    workout_plan_exercises = db.relationship("WorkoutPlanExercise", back_populates="workout_plan")
+    workout_plan_exercises = db.relationship(
+        "WorkoutPlanExercise",
+        back_populates="workout_plan",
+        cascade="all, delete-orphan"
+    )

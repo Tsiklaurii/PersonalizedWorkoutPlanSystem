@@ -18,5 +18,5 @@ class ExercisesDetail(Resource):
     def get(self, id):
         exercise = Exercise.query.get(id)
         if not exercise:
-            abort(message="Exercise not found")
+            abort(404, message="Exercise not found")
         return exercise

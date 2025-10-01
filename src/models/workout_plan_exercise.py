@@ -5,7 +5,7 @@ class WorkoutPlanExercise(BaseModel):
     __tablename__ = "workout_plan_exercises"
 
     id = db.Column(db.Integer, primary_key=True)
-    workout_plan_id = db.Column(db.Integer, db.ForeignKey("workout_plans.id"), nullable=False)
+    workout_plan_id = db.Column(db.Integer, db.ForeignKey("workout_plans.id", ondelete="CASCADE"), nullable=False)
     exercise_id = db.Column(db.Integer, db.ForeignKey("exercises.id"), nullable=False)
     sets = db.Column(db.Integer)
     repetitions = db.Column(db.Integer)
