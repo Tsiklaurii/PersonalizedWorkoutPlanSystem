@@ -1,8 +1,9 @@
 from flask import Flask
 from src.commands import init_db_command, populate_db_command
 from src.config import Config
-from src.ext import db, migrate, api
+from src.ext import db, migrate, api, jwt
 from src.endpoints import ExerciseApi, WorkoutPlansApi, WeightTrackingApi
+from src.models import User
 
 COMMANDS = [init_db_command, populate_db_command]
 
@@ -26,6 +27,18 @@ def register_extensions(app):
 
     #Flask-RestX
     api.init_app(app)
+
+    #Flask-JWT-Extended
+    jwt.init_app(app)
+
+    @jwt.user_identity_loader
+    def user_identity_loader(user):
+        return user.username
+
+    @jwt.user_lookup_loader
+    def user_lookup_callback(_jwt_header, jwt_data):
+        username = jwt_data["sub"]
+        return User.query.filter_by(username=username).first()
 
 
 def register_commands(app):

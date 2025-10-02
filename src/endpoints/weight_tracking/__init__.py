@@ -11,5 +11,4 @@ weight_tracking_model = weight_tracking_ns.model("WeightTrack", {
 })
 
 post_parser = reqparse.RequestParser()
-post_parser.add_argument("user_id", type=int, required=True, help="User ID is required", location="json")
 post_parser.add_argument("weight", type=int, required=True, location="json")

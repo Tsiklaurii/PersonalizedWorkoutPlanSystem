@@ -13,7 +13,6 @@ workout_plans_model = workout_plans_ns.model("WorkoutPlan", {
 })
 
 post_parser = reqparse.RequestParser()
-post_parser.add_argument("user_id", type=int, required=True, help="User ID is required", location="json")
 post_parser.add_argument("name", type=str, required=True, help="Workout plan name is required", location="json")
 post_parser.add_argument("frequency", type=int, required=False, location="json")
 post_parser.add_argument("goal", type=str, required=False, location="json")
