@@ -9,3 +9,7 @@ login_parser.add_argument("password", type=str, required=True)
 
 refresh_parser = reqparse.RequestParser()
 refresh_parser.add_argument("jwt", location="args", required=True)
+
+register_parser = reqparse.RequestParser()
+register_parser.add_argument("username", type=str, required=True)
+register_parser.add_argument("password", type=str, required=True)
